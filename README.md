@@ -133,7 +133,26 @@
       </q-card-section>
     </q-card>
   ```
-  Estilos: Animaciones CSS para transiciones suaves
+
+---
+
+### 5. QSelect - Selector de ciudades
+
+- **Función:** Permite seleccionar de qué ciudades queremos ver el tiempo  
+- **Ubicación:** `pages/WeatherIndexPage.vue`  
+- **Implementación:**
+  ```vue
+    <q-select
+      ref="citySelect"
+      v-model="selectedCities"
+      multiple
+      :options="cityOptions"
+      label="Selecciona ciudades"
+      class="q-mb-md white-select"
+      style="min-width: 300px"
+      @update:model-value="handleSelection"
+    />
+  ```
 
 ---
 
