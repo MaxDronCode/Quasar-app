@@ -40,7 +40,8 @@
 ## 🧩 Componentes utilizados
 
 ### 1. QAjaxBar - Barra de progreso
-![Captura QAjaxBar](https://via.placeholder.com/800x100.png?text=Loading+Bar+Preview)
+![image](https://github.com/user-attachments/assets/e8fc8385-b882-4890-892f-18e8e4e886e3)
+
 
 - **Función:** Indicador visual de carga durante peticiones HTTP  
 - **Ubicación:** `src/pages/WeatherIndexPage.vue`  
