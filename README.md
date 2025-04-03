@@ -4,7 +4,8 @@
 [![Quasar Framework](https://img.shields.io/badge/Quasar-1976D2?style=flat&logo=quasar&logoColor=white)](https://quasar.dev)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
 
-![Banner de la aplicación](https://via.placeholder.com/1200x400.png?text=ClimaX+Weather+App)
+![image](https://github.com/user-attachments/assets/62d4de93-945d-4dc7-9942-c62b744cfe0a)
+
 
 ---
 
