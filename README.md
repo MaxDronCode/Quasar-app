@@ -95,12 +95,43 @@
 - **Ubicación:** `components/WeatherCard.vue`  
 - **Estructura básica:**
   ```vue
-  <q-card class="weather-card">
-    <q-card-section>
-      <h3>{{ location }}</h3>
-      <p>{{ temperature }}°C</p>
-    </q-card-section>
-  </q-card>
+  <q-card class="weather-card q-pa-md" v-if="weatherData">
+      <q-card-section>
+        <div class="text-h4">
+          {{ weatherData.location.name }}, {{ weatherData.location.country }}
+        </div>
+        <div class="text-h6 q-mt-sm">{{ weatherData.current.weather_descriptions[0] }}</div>
+
+        <div class="row items-center q-mt-md">
+          <div class="col">
+            <div class="text-h2">{{ weatherData.current.temperature }}°C</div>
+            <div class="text-caption">Sensación térmica: {{ weatherData.current.feelslike }}°C</div>
+          </div>
+          <div class="col-auto">
+            <img
+              :src="weatherData.current.weather_icons[0]"
+              :alt="weatherData.current.weather_descriptions[0]"
+              class="weather-icon"
+            />
+          </div>
+        </div>
+
+        <div class="row q-mt-md q-gutter-md">
+          <div class="col-auto">
+            <q-icon name="air" class="q-mr-xs" />
+            {{ weatherData.current.wind_speed }} km/h {{ weatherData.current.wind_dir }}
+          </div>
+          <div class="col-auto">
+            <q-icon name="water_drop" class="q-mr-xs" />
+            Humedad: {{ weatherData.current.humidity }}%
+          </div>
+          <div class="col-auto">
+            <q-icon name="visibility" class="q-mr-xs" />
+            Visibilidad: {{ weatherData.current.visibility }} km
+          </div>
+        </div>
+      </q-card-section>
+    </q-card>
   ```
   Estilos: Animaciones CSS para transiciones suaves
 
@@ -127,13 +158,6 @@ Instalar dependencias:
 yarn install
 # o
 npm install
-```
-
-Configurar API Key:
-
-```bash
-cp .env.example .env
-# Editar el archivo .env con tus credenciales
 ```
 
 ---
