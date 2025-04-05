@@ -13,7 +13,6 @@
 
 - [🚀 Características](#-características)
 - [🧩 Componentes utilizados](#-componentes-utilizados)
-- [⚡️ Demo rápida](#️-demo-rápida)
 - [⚙️ Instalación](#️-instalación)
 - [🛠 Desarrollo](#-desarrollo)
 - [📦 Producción](#-producción)
@@ -28,17 +27,17 @@
 - Quasar Framework (Vue 3 + Vite)
 - Axios para peticiones HTTP
 - Sistema de carga inteligente con QAjaxBar
-- Configuración lista para producción
 
 **Funcionalidades actuales:**
 - Búsqueda de ubicaciones
 - Visualización de datos meteorológicos en tiempo real
 - Indicador de carga activa
 - Sistema de manejo de errores
+- Página de detalle para cada ciudad
 
 ---
 
-## 🧩 Componentes utilizados
+## 🧩 Algunos componentes utilizados
 
 ### 1. QAjaxBar - Barra de progreso
 ![image](https://github.com/user-attachments/assets/e8fc8385-b882-4890-892f-18e8e4e886e3)
@@ -60,6 +59,8 @@
 ---
 
 ### 2. QPage - Contenedor principal
+![image](https://github.com/user-attachments/assets/758d45a4-4da0-42f4-bc94-e5ec3b72000b)
+
 
 - **Función:** Estructura base de las páginas  
 - **Ubicación:** Todos los componentes de página  
@@ -74,6 +75,8 @@
 ---
 
 ### 3. QTabs - Navegación entre páginas
+![image](https://github.com/user-attachments/assets/6ede8672-1393-4031-a869-cf98d539be96)
+
 
 - **Función:** Menú de navegación principal  
 - **Ubicación:** `layouts/MainLayout.vue`  
@@ -90,6 +93,7 @@
 ---
 
 ### 4. QCard - Tarjeta de información meteorológica
+![image](https://github.com/user-attachments/assets/d94cf2fe-85b4-4fd5-9768-6a6b5628d552)
 
 - **Función:** Display de datos climáticos  
 - **Ubicación:** `components/WeatherCard.vue`  
@@ -137,6 +141,8 @@
 ---
 
 ### 5. QSelect - Selector de ciudades
+![image](https://github.com/user-attachments/assets/67935f7e-31bf-40a6-9d4a-389b5176d075)
+
 
 - **Función:** Permite seleccionar de qué ciudades queremos ver el tiempo  
 - **Ubicación:** `pages/WeatherIndexPage.vue`  
@@ -156,18 +162,13 @@
 
 ---
 
-## ⚡️ Demo rápida
-
-Prueba la versión en vivo: https://tu-dominio.com
-
----
 
 ## ⚙️ Instalación
 
 Clonar repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/climax.git
+git clone https://github.com/MaxDronCode/climax.git
 cd climax
 ```
 
@@ -201,21 +202,6 @@ yarn lint
 yarn format
 ```
 
----
-
-## 📦 Producción
-
-Build para producción:
-
-```bash
-yarn build
-```
-
-Servir versión optimizada:
-
-```bash
-yarn preview
-```
 
 ---
 
