@@ -14,6 +14,7 @@
 - [🚀 Características](#-características)
 - [🧩 Componentes utilizados](#-algunos-componentes-utilizados)
 - [📓 Documentación de la API](#-documentación-de-la-api)
+- [➡️ Flujo de la aplicación](#-flujo-de-la-aplicación)
 - [⚙️ Instalación](#️-instalación)
 - [🛠 Desarrollo](#-desarrollo)
 - [🌍 Roadmap](#-roadmap)
@@ -303,6 +304,38 @@ Un ejemplo de una peticion GET a `https://api.weatherapi.com/v1/current.json` co
     }
 }
 ```
+
+---
+
+## ➡️ Flujo de la aplicación
+
+Desde la página principal si seleccionamos en el menú superior la pestaña ``WEATHER``, o ``Ir a la página de clima`` en la zona inferior viajaremos a la página de clima.
+![image](https://github.com/user-attachments/assets/cfa0c532-be8e-4f8a-a9bf-4151c1eedd26)
+
+---
+
+También podemos seleccionar el menú superior la pestaña ``CONTACT``, o ``Formulario de contacto`` en la zona inferior para viajar a la página de contacto.
+![image](https://github.com/user-attachments/assets/7581482a-6554-462d-91cb-7301cd7aeaf5)
+
+---
+
+Desde la página de clima, donde vemos nuestra ubicación (Barcelona) por defecto, y donde podemos añadir ciudades para hacer una comparativa de climas, podemos acceder al detalle de cada ciudad con un pronóstico para los próximos 3 dias.
+![image](https://github.com/user-attachments/assets/1b7df254-e31c-472a-bb46-59f4ba7668ad)
+
+---
+
+Y también desde la página de ``DETALLE`` podemos volver atrás usando un icono con una flecha en la parte inferior de la pantalla.
+![image](https://github.com/user-attachments/assets/70c08feb-5fcc-4431-bbe5-12c4aa8d7ff8)
+
+---
+
+Lo mismo se aplica a la página de ``CONTACT``
+![image](https://github.com/user-attachments/assets/1a232b92-da0e-421c-b902-05768a1290f3)
+
+---
+
+Y finalmente tenemos la barra lateral navegable, un menú que si activamos pulsando la 'hamburguesa' de la parte superior izquierda de la pantalla, podremos tener visible constantemente durante toda nuestra navegación por las distintas URLs de nuestra web, y que siempre nos llevará a la página de detalle de la ciudad seleccionada.
+![image](https://github.com/user-attachments/assets/667f3f15-3140-4b92-9b9c-c6a000fa4005)
 
 
 ---
