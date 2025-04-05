@@ -75,8 +75,7 @@
 ---
 
 ### 3. QTabs - Navegación entre páginas
-![image](https://github.com/user-attachments/assets/6ede8672-1393-4031-a869-cf98d539be96)
-
+![image](https://github.com/user-attachments/assets/5dbe48d8-6632-4624-b2b8-9051c4e6c4b9)
 
 - **Función:** Menú de navegación principal  
 - **Ubicación:** `layouts/MainLayout.vue`  
@@ -85,7 +84,7 @@
   <q-tabs>
     <q-route-tab to="/" label="Inicio" />
     <q-route-tab to="/weather" label="Clima" />
-    <q-route-tab to="/about" label="Acerca de" />
+     <q-route-tab to="/contact" label="Contact" />
   </q-tabs>
   ```
   Integración: Enrutamiento nativo con Vue Router
