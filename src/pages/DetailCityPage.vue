@@ -78,7 +78,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import axios from 'axios'
 import { API_KEY } from '../../api-key.js'
@@ -86,7 +86,8 @@ import { API_KEY } from '../../api-key.js'
 const route = useRoute()
 const router = useRouter()
 
-const cityParam = route.params.city || ''
+const cityParam = ref(decodeURIComponent(route.params.city) || '')
+console.log(cityParam)
 
 const forecastData = ref(null)
 const error = ref(null)
@@ -95,25 +96,36 @@ const goBack = () => {
   router.push('/index')
 }
 
-onMounted(async () => {
-  if (!cityParam) {
+async function fetchForecast (city) {
+  if (!city){
     error.value = 'No se especificó ninguna ciudad'
+    forecastData.value = null
     return
   }
-
-  try {
+  try{
+    error.value = null
     const response = await axios.get('https://api.weatherapi.com/v1/forecast.json', {
       params: {
         key: API_KEY,
-        q: cityParam,
-        days: 4 // actual + 3 próximos
+        q: city,
+        days:  4
       }
     })
     forecastData.value = response.data
   } catch (e) {
     console.error(e)
-    error.value = 'Error al cargar la previsión'
+    error.value = "Error al cargar la previsión"
+    forecastData.value = null
   }
+}
+
+onMounted(async () => {
+  fetchForecast(cityParam.value)
+})
+
+watch(() => route.params.city, (newCity) => {
+  cityParam.value = decodeURIComponent(newCity || '')
+  fetchForecast(cityParam.value)
 })
 </script>
 

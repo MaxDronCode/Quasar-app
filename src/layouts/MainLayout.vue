@@ -16,61 +16,25 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above class="bg-grey-8">
       <q-list dark>
-        <q-item-label header>Essential Links</q-item-label>
-        <q-item clickable target="_blank" rel="noopener" href="https://quasar.dev">
+        <!-- Cabecera del Drawer -->
+        <q-item-label header>Mis Ciudades</q-item-label>
+
+        <!-- Recorremos la lista de ciudades y generamos un item por cada una -->
+        <q-item
+          v-for="city in cityOptions"
+          :key="city"
+          clickable
+          :to="`/detail/${city}`"
+          router
+        >
           <q-item-section avatar>
-            <q-icon name="school" />
+            <q-icon name="location_city" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Docs</q-item-label>
-            <q-item-label caption>https://quasar.dev</q-item-label>
+            <q-item-label>{{ city }}</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item clickable target="_blank" rel="noopener" href="https://github.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="code" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>GitHub</q-item-label>
-            <q-item-label caption>github.com/quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable target="_blank" rel="noopener" href="http://chat.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="chat" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Discord Chat Channel</q-item-label>
-            <q-item-label caption>https://chat.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable target="_blank" rel="noopener" href="https://forum.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="record_voice_over" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Forum</q-item-label>
-            <q-item-label caption>https://forum.quasar.dev</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable target="_blank" rel="noopener" href="https://twitter.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="rss_feed" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Twitter</q-item-label>
-            <q-item-label caption>@quasarframework</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item clickable target="_blank" rel="noopener" href="https://facebook.quasar.dev">
-          <q-item-section avatar>
-            <q-icon name="public" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Facebook</q-item-label>
-            <q-item-label caption>@QuasarFramework</q-item-label>
-          </q-item-section>
-        </q-item>
+
       </q-list>
     </q-drawer>
 
@@ -87,16 +51,20 @@ export default {
   name: 'MyLayout',
 
   setup() {
+    // Control del menú lateral
     const leftDrawerOpen = ref(false)
-
     function toggleLeftDrawer() {
       leftDrawerOpen.value = !leftDrawerOpen.value
     }
 
+    // Tu lista de ciudades
+    const cityOptions = ['Barcelona', 'Madrid', 'New York', 'London', 'Tokyo']
+
     return {
       leftDrawerOpen,
       toggleLeftDrawer,
+      cityOptions
     }
-  },
+  }
 }
 </script>
