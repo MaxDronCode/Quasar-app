@@ -35,6 +35,8 @@
 - Sistema de manejo de errores
 - Página de detalle para cada ciudad
 
+- [📖 Índice](#-tabla-de-contenidos)
+
 ---
 
 ## 🧩 Algunos componentes utilizados
