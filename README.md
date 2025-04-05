@@ -14,6 +14,7 @@
 - [🚀 Características](#-características)
 - [🧩 Componentes utilizados](#-algunos-componentes-utilizados)
 - [📓 Documentación de la API](#-documentación-de-la-api)
+- [➡️ Flujo de la aplicación](#-flujo-de-la-aplicación)
 - [⚙️ Instalación](#️-instalación)
 - [🛠 Desarrollo](#-desarrollo)
 - [🌍 Roadmap](#-roadmap)
@@ -302,8 +303,44 @@ Un ejemplo de una peticion GET a `https://api.weatherapi.com/v1/current.json` co
         "gust_kph": 6.0
     }
 }
-```
 
+```
+[📖 Índice](#-tabla-de-contenidos)
+
+
+---
+
+## ➡️ Flujo de la aplicación
+
+Desde la página principal si seleccionamos en el menú superior la pestaña ``WEATHER``, o ``Ir a la página de clima`` en la zona inferior viajaremos a la página de clima.
+![image](https://github.com/user-attachments/assets/cfa0c532-be8e-4f8a-a9bf-4151c1eedd26)
+
+---
+
+También podemos seleccionar el menú superior la pestaña ``CONTACT``, o ``Formulario de contacto`` en la zona inferior para viajar a la página de contacto.
+![image](https://github.com/user-attachments/assets/7581482a-6554-462d-91cb-7301cd7aeaf5)
+
+---
+
+Desde la página de clima, donde vemos nuestra ubicación (Barcelona) por defecto, y donde podemos añadir ciudades para hacer una comparativa de climas, podemos acceder al detalle de cada ciudad con un pronóstico para los próximos 3 dias.
+![image](https://github.com/user-attachments/assets/fabc5bf8-11ce-4b58-8438-b4de26269892)
+
+---
+
+Y también desde la página de ``DETALLE`` podemos volver atrás usando un icono con una flecha en la parte inferior de la pantalla.
+![image](https://github.com/user-attachments/assets/ec7189bf-0fe7-4d41-9e7e-712da9d85d00)
+
+---
+
+Lo mismo se aplica a la página de ``CONTACT``
+![image](https://github.com/user-attachments/assets/4ccb8a67-837d-4d7f-a618-563a36859772)
+
+---
+
+Y finalmente tenemos la barra lateral navegable, un menú que si activamos pulsando la 'hamburguesa' de la parte superior izquierda de la pantalla, podremos tener visible constantemente durante toda nuestra navegación por las distintas URLs de nuestra web, y que siempre nos llevará a la página de detalle de la ciudad seleccionada.
+![image](https://github.com/user-attachments/assets/dbd98d28-575e-4064-8593-ae614b4ab273)
+
+[📖 Índice](#-tabla-de-contenidos)
 
 ---
 
