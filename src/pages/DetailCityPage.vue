@@ -3,7 +3,6 @@
     <div v-if="forecastData">
       <h2>Pronóstico para {{ forecastData.location.name }}</h2>
 
-      <!-- Mostrar clima actual (opcional) -->
       <div class="current-forecast q-my-md">
         <q-card class="q-pa-md">
           <q-card-section>
@@ -34,7 +33,6 @@
         </q-card>
       </div>
 
-      <!-- Mostrar los próximos 3 días (forecastday) -->
       <div class="row q-gutter-md">
         <q-card
           v-for="(day, index) in forecastData.forecast.forecastday"
@@ -64,7 +62,6 @@
       </div>
     </div>
 
-    <!-- Mensaje de carga o error -->
     <div v-else>
       <div v-if="error">{{ error }}</div>
       <div v-else>Cargando pronóstico...</div>

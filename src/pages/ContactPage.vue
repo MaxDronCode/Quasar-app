@@ -1,85 +1,118 @@
 <template>
-  <div class="q-pa-md" style="max-width: 400px">
-
+  <div class="row flex flex-center items-center" style="height: 90dvh;">
     <q-form
-      @submit="onSubmit"
-      @reset="onReset"
+      @submit.prevent="onSubmit"
+      @reset.prevent="onReset"
       class="q-gutter-md"
     >
+      <!-- Nombre -->
       <q-input
         filled
         v-model="name"
-        label="Your name *"
-        hint="Name and surname"
+        label="Nombre *"
+        hint="Introduce tu nombre completo"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Please type something']"
+        :rules="[ val => !!val || 'Por favor introduce tu nombre' ]"
       />
 
+      <!-- Correo -->
       <q-input
         filled
-        type="number"
-        v-model="age"
-        label="Your age *"
+        v-model="email"
+        label="Correo electrónico *"
+        hint="ejemplo@dominio.com"
         lazy-rules
         :rules="[
-          val => val !== null && val !== '' || 'Please type your age',
-          val => val > 0 && val < 100 || 'Please type a real age'
+          val => !!val || 'Por favor introduce tu correo',
+          val => /^.+@.+\..+$/.test(val) || 'El correo electrónico no es válido'
         ]"
       />
 
-      <q-toggle v-model="accept" label="I accept the license and terms" />
+      <!-- Mensaje (textarea) -->
+      <q-input
+        filled
+        v-model="message"
+        label="Mensaje *"
+        type="textarea"
+        autogrow
+        hint="Escribe tu consulta o comentario"
+        lazy-rules
+        :rules="[
+          val => !!val || 'Por favor introduce tu mensaje'
+        ]"
+      />
 
+      <!-- Aceptar términos -->
+      <q-toggle
+        v-model="accept"
+        label="He leído y acepto los términos y condiciones"
+      />
+
+      <!-- Botones -->
       <div>
-        <q-btn label="Submit" type="submit" color="primary"/>
-        <q-btn label="Reset" type="reset" color="primary" flat class="q-ml-sm" />
+        <q-btn label="Enviar" type="submit" color="primary" />
+        <q-btn label="Limpiar" type="reset" color="primary" flat class="q-ml-sm" />
       </div>
     </q-form>
-
   </div>
 </template>
 
 <script>
-import { useQuasar } from 'quasar'
 import { ref } from 'vue'
+import { useQuasar } from 'quasar'
 
 export default {
   setup () {
     const $q = useQuasar()
 
-    const name = ref(null)
-    const age = ref(null)
+    // Campos del formulario
+    const name = ref('')
+    const email = ref('')
+    const message = ref('')
     const accept = ref(false)
+
+    // Al enviar
+    function onSubmit () {
+      if (!accept.value) {
+        // Notificación de error si no acepta términos
+        $q.notify({
+          color: 'red-5',
+          textColor: 'white',
+          icon: 'warning',
+          message: 'Debe aceptar los términos y condiciones antes de enviar'
+        })
+      } else {
+        // Notificación de éxito
+        $q.notify({
+          color: 'green-4',
+          textColor: 'white',
+          icon: 'cloud_done',
+          message: `Gracias ${name.value}, nos pondremos en contacto con usted en su correo ${email.value} para resolver sus dudas a la mayor brevedad.`
+        })
+        onReset()
+      }
+    }
+
+    // Al limpiar
+    function onReset () {
+      name.value = ''
+      email.value = ''
+      message.value = ''
+      accept.value = false
+    }
 
     return {
       name,
-      age,
+      email,
+      message,
       accept,
-
-      onSubmit () {
-        if (accept.value !== true) {
-          $q.notify({
-            color: 'red-5',
-            textColor: 'white',
-            icon: 'warning',
-            message: 'You need to accept the license and terms first'
-          })
-        }
-        else {
-          $q.notify({
-            color: 'green-4',
-            textColor: 'white',
-            icon: 'cloud_done',
-            message: 'Submitted'
-          })
-        }
-      },
-
-      onReset () {
-        name.value = null
-        age.value = null
-        accept.value = false
-      }
+      onSubmit,
+      onReset
     }
   }
 }
 </script>
+
+<style>
+/* Opcional, tus estilos */
+</style>
