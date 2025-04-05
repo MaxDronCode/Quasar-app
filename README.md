@@ -13,6 +13,7 @@
 
 - [🚀 Características](#-características)
 - [🧩 Componentes utilizados](#-algunos-componentes-utilizados)
+- [📓 Documentación de la API](#-documentación-de-la-api)
 - [⚙️ Instalación](#️-instalación)
 - [🛠 Desarrollo](#-desarrollo)
 - [🌍 Roadmap](#-roadmap)
@@ -235,6 +236,76 @@
 
 ---
 
+## 📓 Documentación de la API
+
+#### API-KEY
+La api-key está incluida en este repositorio y su uso es 100% educativo.
+Es una api-key conseguida bajo la capa gratuita de weatherApi que caduca el 17-04-2025.
+
+#### URL
+En esta aplicación se han utilizado 2 URLs de la WeatherAPI
+- Para el tiempo actual de la ciudad: https://api.weatherapi.com/v1/current.json
+- Para el pronóstico: https://api.weatherapi.com/v1/forecats.json
+  (URLs incompletas, necesitan parámetros para poderse consultar)
+
+#### PETICIONES
+Las únicas peticiones que permite esta API son de tipo GET, y la mayoria solamente se pueden utilizar bajo planes de pago, y son las siguientes:
+![image](https://github.com/user-attachments/assets/167431cf-c50f-45b2-a4b4-89fc1a5f8768)
+
+#### EJEMPLO DE RESPONSE
+Un ejemplo de una peticion GET a `https://api.weatherapi.com/v1/current.json` con los parámetros ``key: ${API_KEY}`` y ``q: Barcelona`` devuelve:
+```json
+{
+    "location": {
+        "name": "Barcelona",
+        "region": "Catalonia",
+        "country": "Spain",
+        "lat": 41.3833,
+        "lon": 2.1833,
+        "tz_id": "Europe/Madrid",
+        "localtime_epoch": 1743876262,
+        "localtime": "2025-04-05 20:04"
+    },
+    "current": {
+        "last_updated_epoch": 1743876000,
+        "last_updated": "2025-04-05 20:00",
+        "temp_c": 14.2,
+        "temp_f": 57.6,
+        "is_day": 1,
+        "condition": {
+            "text": "Fog",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/248.png",
+            "code": 1135
+        },
+        "wind_mph": 2.7,
+        "wind_kph": 4.3,
+        "wind_degree": 127,
+        "wind_dir": "SE",
+        "pressure_mb": 1011.0,
+        "pressure_in": 29.85,
+        "precip_mm": 0.1,
+        "precip_in": 0.0,
+        "humidity": 88,
+        "cloud": 50,
+        "feelslike_c": 14.7,
+        "feelslike_f": 58.4,
+        "windchill_c": 15.4,
+        "windchill_f": 59.6,
+        "heatindex_c": 15.4,
+        "heatindex_f": 59.6,
+        "dewpoint_c": 11.3,
+        "dewpoint_f": 52.4,
+        "vis_km": 5.0,
+        "vis_miles": 3.0,
+        "uv": 0.0,
+        "gust_mph": 3.7,
+        "gust_kph": 6.0
+    }
+}
+```
+
+
+---
 
 ## ⚙️ Instalación
 
