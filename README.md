@@ -54,7 +54,12 @@
     size="10px"
   />
   ```
-  Comportamiento: Se activa automáticamente con Axios gracias a la integración de Quasar
+  **Comportamiento**: Se activa automáticamente con Axios gracias a la integración de Quasar
+  - **Por qué se utilizó:**
+    - **Integración nativa**: Se activa automáticamente con peticiones Axios
+    - **Personalización visual**: Posición inferior ``(bottom)`` con color del tema ``(accent)``
+    - **Feedback no intrusivo**: Barra delgada (10px) que no interrumpe la UI
+    - **Gestión de estado**: Control mediante referencia ``(ref="bar"``) para activar/desactivar manualmente
 
 ---
 
@@ -62,7 +67,7 @@
 ![image](https://github.com/user-attachments/assets/758d45a4-4da0-42f4-bc94-e5ec3b72000b)
 
 
-- **Función:** Estructura base de las páginas  
+- **Función:** Estructura base para páginas con disposición responsive  
 - **Ubicación:** Todos los componentes de página  
 - **Características:**
   ```vue
@@ -70,14 +75,18 @@
     <!-- Contenido -->
   </q-page>
   ```
-  Estilos: Flexbox centrado para disposición responsive
+- **Por qué se utilizó:**
+  - **Diseño adaptable**: Clases flex de Quasar para centrado vertical/horizontal
+  - **Optimización móvil**: Gestión automática del viewport en dispositivos
+  - **Consistencia estructural**: Base uniforme para todas las páginas
+  - **Gestión de scroll**: Comportamiento predecible en navegación
 
 ---
 
 ### 3. QTabs - Navegación entre páginas
 ![image](https://github.com/user-attachments/assets/5dbe48d8-6632-4624-b2b8-9051c4e6c4b9)
 
-- **Función:** Menú de navegación principal  
+- **Función:** Sistema de navegación principal tipo pestañas  
 - **Ubicación:** `layouts/MainLayout.vue`  
 - **Implementación:**
   ```vue
@@ -87,55 +96,32 @@
      <q-route-tab to="/contact" label="Contact" />
   </q-tabs>
   ```
-  Integración: Enrutamiento nativo con Vue Router
+- **Por qué se utilizó:**
+  - **Enrutamiento inteligente**: Integración con Vue Router mediante ``q-route-tab``
+  - **Feedback visual**: Indicador activo de la pestaña seleccionada
+  - **Diseño responsivo**: Adaptación automática a diferentes tamaños de pantalla
+  - **Accesibilidad**: Navegación por teclado y ARIA labels integrados
 
 ---
 
 ### 4. QCard - Tarjeta de información meteorológica
 ![image](https://github.com/user-attachments/assets/d94cf2fe-85b4-4fd5-9768-6a6b5628d552)
 
-- **Función:** Display de datos climáticos  
+- **Función:** Presentación estructurada de datos climáticos  
 - **Ubicación:** `pages/WeatherIndexPage.vue` - `pages/DetailCityPage.vue`
 - **Estructura básica:**
   ```vue
-  <q-card class="weather-card q-pa-md" v-if="weatherData">
-      <q-card-section>
-        <div class="text-h4">
-          {{ weatherData.location.name }}, {{ weatherData.location.country }}
-        </div>
-        <div class="text-h6 q-mt-sm">{{ weatherData.current.weather_descriptions[0] }}</div>
-
-        <div class="row items-center q-mt-md">
-          <div class="col">
-            <div class="text-h2">{{ weatherData.current.temperature }}°C</div>
-            <div class="text-caption">Sensación térmica: {{ weatherData.current.feelslike }}°C</div>
-          </div>
-          <div class="col-auto">
-            <img
-              :src="weatherData.current.weather_icons[0]"
-              :alt="weatherData.current.weather_descriptions[0]"
-              class="weather-icon"
-            />
-          </div>
-        </div>
-
-        <div class="row q-mt-md q-gutter-md">
-          <div class="col-auto">
-            <q-icon name="air" class="q-mr-xs" />
-            {{ weatherData.current.wind_speed }} km/h {{ weatherData.current.wind_dir }}
-          </div>
-          <div class="col-auto">
-            <q-icon name="water_drop" class="q-mr-xs" />
-            Humedad: {{ weatherData.current.humidity }}%
-          </div>
-          <div class="col-auto">
-            <q-icon name="visibility" class="q-mr-xs" />
-            Visibilidad: {{ weatherData.current.visibility }} km
-          </div>
-        </div>
-      </q-card-section>
-    </q-card>
+   <q-card class="weather-card q-pa-md">
+    <q-card-section>
+      <!-- Contenido jerarquizado -->
+    </q-card-section>
+  </q-card>
   ```
+- **Por qué se utilizó:**
+  - **Organización visual**: Separación clara de secciones con ``q-card-section``
+  - **Estilos predefinidos**: Sombras y bordes redondeados para destacar información
+  - **Responsive nativo**: Adaptación automática al contenido
+  - **Interactividad**: Hover effects y estados activos integrados
 
 ---
 
@@ -143,21 +129,22 @@
 ![image](https://github.com/user-attachments/assets/67935f7e-31bf-40a6-9d4a-389b5176d075)
 
 
-- **Función:** Permite seleccionar de qué ciudades queremos ver el tiempo  
+- **Función:** Selección múltiple de ubicaciones para comparar climas  
 - **Ubicación:** `pages/WeatherIndexPage.vue`  
 - **Implementación:**
   ```vue
     <q-select
-      ref="citySelect"
       v-model="selectedCities"
       multiple
       :options="cityOptions"
       label="Selecciona ciudades"
-      class="q-mb-md white-select"
-      style="min-width: 300px"
-      @update:model-value="handleSelection"
     />
   ```
+- **Por qué se utilizó:**
+  - **Búsqueda inteligente**: Autocompletado integrado en la lista de opciones
+  - **Gestión de estado**: Binding bidireccional con v-model
+  - **Experiencia móvil**: Menú desplegable adaptado a touch devices
+  - **Personalización avanzada**: Soporte para chips, filtrado y creación de nuevas opciones
 
 ---
 
