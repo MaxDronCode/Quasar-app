@@ -221,18 +221,14 @@
 - **Ubicación:** `layouts/MainLayout.vue`  
 - **Implementación:**
   ```vue
-          <q-drawer v-model="leftDrawerOpen" show-if-above class="bg-grey-8">
+    <q-drawer v-model="leftDrawerOpen" show-if-above class="bg-grey-8">
       <q-list dark>
-        <!-- Cabecera del Drawer -->
         <q-item-label header>Mis Ciudades</q-item-label>
-
-        <!-- Recorremos la lista de ciudades y generamos un item por cada una -->
         <q-item
           v-for="city in cityOptions"
           :key="city"
           clickable
           :to="`/detail/${city}`"
-          router
         >
           <q-item-section avatar>
             <q-icon name="location_city" />
