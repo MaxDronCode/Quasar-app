@@ -241,7 +241,7 @@
 Clonar repositorio:
 
 ```bash
-git clone https://github.com/MaxDronCode/climax.git
+git clone https://github.com/MaxDronCode/Quasar-app.git
 cd climax
 ```
 
