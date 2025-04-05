@@ -44,56 +44,58 @@
       </div>
     </q-form>
   </div>
+  <q-btn round color="brown-5" class="q-ma-md" @click="goBack">
+    <img src="src/assets/back-svgrepo-com.svg" alt="Go bakc arrow" style="width: 40px" />
+  </q-btn>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
 
-export default {
-  setup() {
-    const $q = useQuasar()
+// Router
+const router = useRouter()
+// Notificaciones de Quasar
+const $q = useQuasar()
 
-    const name = ref('')
-    const email = ref('')
-    const message = ref('')
-    const accept = ref(false)
+// Campos del formulario
+const name = ref('')
+const email = ref('')
+const message = ref('')
+const accept = ref(false)
 
-    function onSubmit() {
-      if (!accept.value) {
-        $q.notify({
-          color: 'red-5',
-          textColor: 'white',
-          icon: 'warning',
-          message: 'Debe aceptar los términos y condiciones antes de enviar',
-        })
-      } else {
-        $q.notify({
-          color: 'green-4',
-          textColor: 'white',
-          icon: 'cloud_done',
-          message: `Gracias ${name.value}, nos pondremos en contacto con usted en su correo ${email.value} para resolver sus dudas a la mayor brevedad.`,
-        })
-        onReset()
-      }
-    }
+// Navegar de vuelta
+function goBack () {
+  router.push('/index')
+}
 
-    function onReset() {
-      name.value = ''
-      email.value = ''
-      message.value = ''
-      accept.value = false
-    }
+// Envío del formulario
+function onSubmit () {
+  if (!accept.value) {
+    $q.notify({
+      color: 'red-5',
+      textColor: 'white',
+      icon: 'warning',
+      message: 'Debe aceptar los términos y condiciones antes de enviar'
+    })
+  } else {
+    $q.notify({
+      color: 'green-4',
+      textColor: 'white',
+      icon: 'cloud_done',
+      message: `Gracias ${name.value}, nos pondremos en contacto con usted en su correo ${email.value} para resolver sus dudas a la mayor brevedad.`
+    })
+    onReset()
+  }
+}
 
-    return {
-      name,
-      email,
-      message,
-      accept,
-      onSubmit,
-      onReset,
-    }
-  },
+// Reset del formulario
+function onReset () {
+  name.value = ''
+  email.value = ''
+  message.value = ''
+  accept.value = false
 }
 </script>
 
