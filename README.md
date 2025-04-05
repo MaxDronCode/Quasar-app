@@ -328,7 +328,7 @@ Desde la página de clima, donde vemos nuestra ubicación (Barcelona) por defect
 ---
 
 Y también desde la página de ``DETALLE`` podemos volver atrás usando un icono con una flecha en la parte inferior de la pantalla.
-![image](https://github.com/user-attachments/assets/70c08feb-5fcc-4431-bbe5-12c4aa8d7ff8)
+![image](https://github.com/user-attachments/assets/ec7189bf-0fe7-4d41-9e7e-712da9d85d00)
 
 ---
 
