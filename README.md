@@ -333,7 +333,7 @@ Y también desde la página de ``DETALLE`` podemos volver atrás usando un icono
 ---
 
 Lo mismo se aplica a la página de ``CONTACT``
-![image](https://github.com/user-attachments/assets/1a232b92-da0e-421c-b902-05768a1290f3)
+![image](https://github.com/user-attachments/assets/4ccb8a67-837d-4d7f-a618-563a36859772)
 
 ---
 
