@@ -68,7 +68,7 @@
     </div>
 
     <q-btn round color="brown-5" class="q-ma-md" @click="goBack">
-      <img src="src/assets/back-svgrepo-com.svg" alt="Go bakc arrow" style="width: 40px;">
+      <img src="@/assets/back-svgrepo-com.svg" alt="Go bakc arrow" style="width: 40px;">
     </q-btn>
 
   </q-page>
