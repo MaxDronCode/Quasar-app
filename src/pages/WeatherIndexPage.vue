@@ -25,7 +25,7 @@
           <q-card-section>
             <div class="close-icon" v-on:click="removeCity(index)">
               <img
-                src="src/assets/close-circle-svgrepo-com.svg"
+                src="~assets/close-circle-svgrepo-com.svg"
                 alt="Close icon"
                 width="24"
                 height="24"
