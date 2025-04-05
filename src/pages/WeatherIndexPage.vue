@@ -24,7 +24,6 @@
         >
           <q-card-section>
             <div class="close-icon" v-on:click="removeCity(index)">
-              <!-- Usamos tu SVG -->
               <img
                 src="src/assets/close-circle-svgrepo-com.svg"
                 alt="Close icon"
@@ -63,6 +62,13 @@
                 Humedad: {{ weather.current?.humidity }}%
               </div>
             </div>
+            <div class="q-mt-md">
+              <q-btn
+                label="Ver más"
+                color="primary"
+                @click="goToForecast(weather.location.name)"
+              />
+            </div>
           </q-card-section>
         </q-card>
       </template>
@@ -77,14 +83,20 @@
 import { API_KEY } from '../../api-key.js'
 import axios from 'axios'
 import { ref, onMounted, watch } from 'vue'
+import { useRouter } from 'vue-router'
 
 const bar = ref(null)
 const weatherData = ref([])
 const err = ref(null)
 const selectedCities = ref(['Barcelona'])
 const citySelect = ref(null)
+const router = useRouter()
 
 const cityOptions = ['Barcelona', 'Madrid', 'New York', 'London', 'Tokyo']
+
+const goToForecast = (cityName) => {
+  router.push(`/detail/${cityName}`)
+}
 
 const removeCity = (index) => {
   const cityName = weatherData.value[index].location.name
