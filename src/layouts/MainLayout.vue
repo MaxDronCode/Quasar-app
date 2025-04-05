@@ -9,7 +9,7 @@
         <q-tabs>
           <q-route-tab to="/" label="Inicio" />
           <q-route-tab to="/index" label="Weather" />
-          <q-route-tab to="/about" label="About" />
+          <q-route-tab to="/contact" label="Contact" />
         </q-tabs>
       </q-toolbar>
     </q-header>
