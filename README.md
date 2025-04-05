@@ -338,7 +338,7 @@ Lo mismo se aplica a la página de ``CONTACT``
 ---
 
 Y finalmente tenemos la barra lateral navegable, un menú que si activamos pulsando la 'hamburguesa' de la parte superior izquierda de la pantalla, podremos tener visible constantemente durante toda nuestra navegación por las distintas URLs de nuestra web, y que siempre nos llevará a la página de detalle de la ciudad seleccionada.
-![image](https://github.com/user-attachments/assets/667f3f15-3140-4b92-9b9c-c6a000fa4005)
+![image](https://github.com/user-attachments/assets/dbd98d28-575e-4064-8593-ae614b4ab273)
 
 [📖 Índice](#-tabla-de-contenidos)
 
