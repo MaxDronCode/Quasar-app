@@ -1,6 +1,5 @@
 <template>
   <q-page class="flex flex-center column">
-
     <q-ajax-bar ref="bar" position="bottom" color="accent" size="10px" />
 
     <h1 class="q-mb-md">ClimaX 🌤️</h1>
@@ -24,7 +23,6 @@
           class="weather-card q-pa-md card-with-close"
         >
           <q-card-section>
-
             <div class="close-icon" v-on:click="removeCity(index)">
               <!-- Usamos tu SVG -->
               <img
@@ -35,27 +33,20 @@
               />
             </div>
 
-            <div class="text-h6">
-              {{ weather.location?.name }}, {{ weather.location?.country }}
-            </div>
+            <div class="text-h6">{{ weather.location?.name }}, {{ weather.location?.country }}</div>
             <div class="text-caption">
               {{ weather.current?.condition?.text }}
             </div>
 
             <div class="row items-center q-mt-sm">
               <div class="col">
-                <div class="text-h4">
-                  {{ weather.current?.temp_c }}°C
-                </div>
+                <div class="text-h4">{{ weather.current?.temp_c }}°C</div>
                 <div class="text-caption">
                   Sensación térmica: {{ weather.current?.feelslike_c }}°C
                 </div>
               </div>
               <div class="col-auto">
-                <img
-                  :src="'https:' + weather.current?.condition?.icon"
-                  class="weather-icon"
-                />
+                <img :src="'https:' + weather.current?.condition?.icon" class="weather-icon" />
               </div>
             </div>
 
