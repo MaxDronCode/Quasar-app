@@ -15,7 +15,6 @@
 - [🧩 Componentes utilizados](#-algunos-componentes-utilizados)
 - [⚙️ Instalación](#️-instalación)
 - [🛠 Desarrollo](#-desarrollo)
-- [📦 Producción](#-producción)
 - [🌍 Roadmap](#-roadmap)
 - [📄 Licencia](#-licencia)
 
