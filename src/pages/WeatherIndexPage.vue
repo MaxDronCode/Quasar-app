@@ -12,11 +12,15 @@
       class="q-mb-md white-select"
       style="min-width: 300px"
       @update:model-value="handleSelection"
-    />
+    ></q-select>
 
     <div class="row q-gutter-md justify-center">
       <template v-if="weatherData.length > 0">
         <q-card v-for="(weather, index) in weatherData" :key="index" class="weather-card q-pa-md">
+          <q-btn flat round class="close-btn" @click="removeCityCard(index)">
+            <img src="src/assets/close-circle-svgrepo-com.svg" style="width: 24px; height: 24px" />
+          </q-btn>
+
           <q-card-section>
             <div class="text-h6">{{ weather.location?.name }}, {{ weather.location?.country }}</div>
             <div class="text-caption">{{ weather.current?.condition?.text }}</div>
@@ -63,6 +67,10 @@ const err = ref(null)
 const selectedCities = ref(['Barcelona'])
 const citySelect = ref(null)
 const cityOptions = ['Barcelona', 'Madrid', 'New York', 'London', 'Tokyo']
+
+const removeCityCard = (index) => {
+  selectedCities.value.splice(index, 1)
+}
 
 const handleSelection = () => {
   if (citySelect.value) {
@@ -118,6 +126,58 @@ onMounted(() => {
 </script>
 
 <style>
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+}
+
+.weather-card {
+  position: relative;
+  min-width: 300px;
+  max-width: 400px;
+  width: 100%;
+  color: black;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+}
+.white-select .q-chip--removable {
+  background: #1976d2 !important;
+  padding-right: 24px !important;
+}
+
+.white-select .q-chip__remove {
+  color: white !important;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+.white-select .q-chip__remove:hover {
+  opacity: 1;
+}
+
+.white-select .q-chip {
+  background: #1976d2 !important;
+  padding-right: 32px !important;
+  position: relative;
+}
+
+.white-select .q-chip img {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s;
+}
+
+.white-select .q-chip img:hover {
+  opacity: 0.8;
+}
+
 .weather-card {
   min-width: 300px;
   max-width: 400px;
