@@ -12,7 +12,7 @@
 ## 📑 Tabla de contenidos
 
 - [🚀 Características](#-características)
-- [🧩 Componentes utilizados](#-componentes-utilizados)
+- [🧩 Componentes utilizados](#-algunos-componentes-utilizados)
 - [⚙️ Instalación](#️-instalación)
 - [🛠 Desarrollo](#-desarrollo)
 - [📦 Producción](#-producción)
