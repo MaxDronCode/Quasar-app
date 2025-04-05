@@ -323,7 +323,7 @@ También podemos seleccionar el menú superior la pestaña ``CONTACT``, o ``Form
 ---
 
 Desde la página de clima, donde vemos nuestra ubicación (Barcelona) por defecto, y donde podemos añadir ciudades para hacer una comparativa de climas, podemos acceder al detalle de cada ciudad con un pronóstico para los próximos 3 dias.
-![image](https://github.com/user-attachments/assets/1b7df254-e31c-472a-bb46-59f4ba7668ad)
+![image](https://github.com/user-attachments/assets/fabc5bf8-11ce-4b58-8438-b4de26269892)
 
 ---
 
