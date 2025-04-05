@@ -12,10 +12,10 @@
 ## 📑 Tabla de contenidos
 
 - [🚀 Características](#-características)
-- [🧩 Componentes utilizados](#-componentes-utilizados)
+- [🧩 Componentes utilizados](#-algunos-componentes-utilizados)
+- [📓 Documentación de la API](#-documentación-de-la-api)
 - [⚙️ Instalación](#️-instalación)
 - [🛠 Desarrollo](#-desarrollo)
-- [📦 Producción](#-producción)
 - [🌍 Roadmap](#-roadmap)
 - [📄 Licencia](#-licencia)
 
@@ -34,6 +34,8 @@
 - Indicador de carga activa
 - Sistema de manejo de errores
 - Página de detalle para cada ciudad
+
+[📖 Índice](#-tabla-de-contenidos)
 
 ---
 
@@ -54,7 +56,12 @@
     size="10px"
   />
   ```
-  Comportamiento: Se activa automáticamente con Axios gracias a la integración de Quasar
+  **Comportamiento**: Se activa automáticamente con Axios gracias a la integración de Quasar
+  - **Por qué se utilizó:**
+    - **Integración nativa**: Se activa automáticamente con peticiones Axios
+    - **Personalización visual**: Posición inferior ``(bottom)`` con color del tema ``(accent)``
+    - **Feedback no intrusivo**: Barra delgada (10px) que no interrumpe la UI
+    - **Gestión de estado**: Control mediante referencia ``(ref="bar"``) para activar/desactivar manualmente
 
 ---
 
@@ -62,7 +69,7 @@
 ![image](https://github.com/user-attachments/assets/758d45a4-4da0-42f4-bc94-e5ec3b72000b)
 
 
-- **Función:** Estructura base de las páginas  
+- **Función:** Estructura base para páginas con disposición responsive  
 - **Ubicación:** Todos los componentes de página  
 - **Características:**
   ```vue
@@ -70,14 +77,18 @@
     <!-- Contenido -->
   </q-page>
   ```
-  Estilos: Flexbox centrado para disposición responsive
+- **Por qué se utilizó:**
+  - **Diseño adaptable**: Clases flex de Quasar para centrado vertical/horizontal
+  - **Optimización móvil**: Gestión automática del viewport en dispositivos
+  - **Consistencia estructural**: Base uniforme para todas las páginas
+  - **Gestión de scroll**: Comportamiento predecible en navegación
 
 ---
 
 ### 3. QTabs - Navegación entre páginas
 ![image](https://github.com/user-attachments/assets/5dbe48d8-6632-4624-b2b8-9051c4e6c4b9)
 
-- **Función:** Menú de navegación principal  
+- **Función:** Sistema de navegación principal tipo pestañas  
 - **Ubicación:** `layouts/MainLayout.vue`  
 - **Implementación:**
   ```vue
@@ -87,55 +98,32 @@
      <q-route-tab to="/contact" label="Contact" />
   </q-tabs>
   ```
-  Integración: Enrutamiento nativo con Vue Router
+- **Por qué se utilizó:**
+  - **Enrutamiento inteligente**: Integración con Vue Router mediante ``q-route-tab``
+  - **Feedback visual**: Indicador activo de la pestaña seleccionada
+  - **Diseño responsivo**: Adaptación automática a diferentes tamaños de pantalla
+  - **Accesibilidad**: Navegación por teclado y ARIA labels integrados
 
 ---
 
 ### 4. QCard - Tarjeta de información meteorológica
 ![image](https://github.com/user-attachments/assets/d94cf2fe-85b4-4fd5-9768-6a6b5628d552)
 
-- **Función:** Display de datos climáticos  
+- **Función:** Presentación estructurada de datos climáticos  
 - **Ubicación:** `pages/WeatherIndexPage.vue` - `pages/DetailCityPage.vue`
 - **Estructura básica:**
   ```vue
-  <q-card class="weather-card q-pa-md" v-if="weatherData">
-      <q-card-section>
-        <div class="text-h4">
-          {{ weatherData.location.name }}, {{ weatherData.location.country }}
-        </div>
-        <div class="text-h6 q-mt-sm">{{ weatherData.current.weather_descriptions[0] }}</div>
-
-        <div class="row items-center q-mt-md">
-          <div class="col">
-            <div class="text-h2">{{ weatherData.current.temperature }}°C</div>
-            <div class="text-caption">Sensación térmica: {{ weatherData.current.feelslike }}°C</div>
-          </div>
-          <div class="col-auto">
-            <img
-              :src="weatherData.current.weather_icons[0]"
-              :alt="weatherData.current.weather_descriptions[0]"
-              class="weather-icon"
-            />
-          </div>
-        </div>
-
-        <div class="row q-mt-md q-gutter-md">
-          <div class="col-auto">
-            <q-icon name="air" class="q-mr-xs" />
-            {{ weatherData.current.wind_speed }} km/h {{ weatherData.current.wind_dir }}
-          </div>
-          <div class="col-auto">
-            <q-icon name="water_drop" class="q-mr-xs" />
-            Humedad: {{ weatherData.current.humidity }}%
-          </div>
-          <div class="col-auto">
-            <q-icon name="visibility" class="q-mr-xs" />
-            Visibilidad: {{ weatherData.current.visibility }} km
-          </div>
-        </div>
-      </q-card-section>
-    </q-card>
+   <q-card class="weather-card q-pa-md">
+    <q-card-section>
+      <!-- Contenido jerarquizado -->
+    </q-card-section>
+  </q-card>
   ```
+- **Por qué se utilizó:**
+  - **Organización visual**: Separación clara de secciones con ``q-card-section``
+  - **Estilos predefinidos**: Sombras y bordes redondeados para destacar información
+  - **Responsive nativo**: Adaptación automática al contenido
+  - **Interactividad**: Hover effects y estados activos integrados
 
 ---
 
@@ -143,46 +131,51 @@
 ![image](https://github.com/user-attachments/assets/67935f7e-31bf-40a6-9d4a-389b5176d075)
 
 
-- **Función:** Permite seleccionar de qué ciudades queremos ver el tiempo  
+- **Función:** Selección múltiple de ubicaciones para comparar climas  
 - **Ubicación:** `pages/WeatherIndexPage.vue`  
 - **Implementación:**
   ```vue
     <q-select
-      ref="citySelect"
       v-model="selectedCities"
       multiple
       :options="cityOptions"
       label="Selecciona ciudades"
-      class="q-mb-md white-select"
-      style="min-width: 300px"
-      @update:model-value="handleSelection"
     />
   ```
+- **Por qué se utilizó:**
+  - **Búsqueda inteligente**: Autocompletado integrado en la lista de opciones
+  - **Gestión de estado**: Binding bidireccional con v-model
+  - **Experiencia móvil**: Menú desplegable adaptado a touch devices
+  - **Personalización avanzada**: Soporte para chips, filtrado y creación de nuevas opciones
 
 ---
 
-### 6. QForm - Formulario de entrada de datos
-![image](https://github.com/user-attachments/assets/5440c073-ef33-465a-b534-b6d1ad952a72)
+### 6. QForm - Gestión completa de formularios con validación integrada
+![image](https://github.com/user-attachments/assets/31628898-2ee8-443f-87db-83350f2dc3f5)
 
 
 - **Función:** Permite recoger, validar, y enviar datos  
 - **Ubicación:** `pages/ContactPage.vue`  
 - **Implementación:**
   ```vue
-    <q-form
-      @submit.prevent="onSubmit"
-      @reset.prevent="onReset"
-      class="q-gutter-md"
-    ></q-form>
+   <q-form @submit.prevent="onSubmit" @reset.prevent="onReset" class="q-gutter-md">
+   <!-- Campos del formulario -->
+   </q-form>
   ```
+- **Por qué se utilizó:**
+  - **Validación automática:** Coordina las reglas de todos los QInputs hijos
+  - **Manejo de eventos:** `submit.prevent` y `reset.prevent` para control nativo
+  - **Diseño consistente:** Espaciado uniforme con ``q-gutter-md``
+  - **Accesibilidad:** Genera markup HTML semántico (`<form>`)
+
 
 ---
 
-### 7. QInput - Input de entrada de datos
-![image](https://github.com/user-attachments/assets/c7666f1e-31ae-4e93-ad3f-63d6ec80408b)
+### 7. QInput - Campo de entrada de datos
+![image](https://github.com/user-attachments/assets/a1678fa7-dd8b-4d6e-9b59-c036f00a52b9)
 
 
-- **Función:** Permite introducir datos añ usuario y aplicar validaciones al momento
+- **Función:** Captura y valida datos de usuario en tiempo real
 - **Ubicación:** `pages/ContactPage.vue`  
 - **Implementación:**
   ```vue
@@ -198,16 +191,128 @@
         ]"
       />
   ```
+  - **Por qué se utilizó:**
+    - **Validación en cascada**: Reglas ejecutadas secuencialmente
+    - **Feedback visual**: Estilo filled con estados de error automáticos
+    - **Funcionalidad extendida**:
+      - `hint`: Muestra texto guía contextual
+      - `lazy-rules`: Valida solo al interactuar
+    - **Accesibilidad**: Genera ``<label>`` asociado automáticamente
+
 
 ---
 
+### 8. QDrawer - Componente para crear un panel lateral de navegación
+![image](https://github.com/user-attachments/assets/a1678fa7-dd8b-4d6e-9b59-c036f00a52b9)
+
+
+- **Función:** Permite introducir datos añ usuario y aplicar validaciones al momento
+- **Ubicación:** `layouts/MainLayout.vue`  
+- **Implementación:**
+  ```vue
+    <q-drawer v-model="leftDrawerOpen" show-if-above class="bg-grey-8">
+      <q-list dark>
+        <q-item-label header>Mis Ciudades</q-item-label>
+        <q-item
+          v-for="city in cityOptions"
+          :key="city"
+          clickable
+          :to="`/detail/${city}`"
+        >
+          <q-item-section avatar>
+            <q-icon name="location_city" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ city }}</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-drawer>
+  ```
+  - **Por qué se utilizado:**
+    - El Drawer se muestra automáticamente en pantallas grande y se esconde en pantallas mas pequeñas
+
+[📖 Índice](#-tabla-de-contenidos)
+
+---
+
+## 📓 Documentación de la API
+
+#### API-KEY
+La api-key está incluida en este repositorio y su uso es 100% educativo.
+Es una api-key conseguida bajo la capa gratuita de weatherApi que caduca el 17-04-2025.
+
+#### URL
+En esta aplicación se han utilizado 2 URLs de la WeatherAPI
+- Para el tiempo actual de la ciudad: https://api.weatherapi.com/v1/current.json
+- Para el pronóstico: https://api.weatherapi.com/v1/forecats.json
+  (URLs incompletas, necesitan parámetros para poderse consultar)
+
+#### PETICIONES
+Las únicas peticiones que permite esta API son de tipo GET, y la mayoria solamente se pueden utilizar bajo planes de pago, y son las siguientes:
+![image](https://github.com/user-attachments/assets/167431cf-c50f-45b2-a4b4-89fc1a5f8768)
+
+#### EJEMPLO DE RESPONSE
+Un ejemplo de una peticion GET a `https://api.weatherapi.com/v1/current.json` con los parámetros ``key: ${API_KEY}`` y ``q: Barcelona`` devuelve:
+```json
+{
+    "location": {
+        "name": "Barcelona",
+        "region": "Catalonia",
+        "country": "Spain",
+        "lat": 41.3833,
+        "lon": 2.1833,
+        "tz_id": "Europe/Madrid",
+        "localtime_epoch": 1743876262,
+        "localtime": "2025-04-05 20:04"
+    },
+    "current": {
+        "last_updated_epoch": 1743876000,
+        "last_updated": "2025-04-05 20:00",
+        "temp_c": 14.2,
+        "temp_f": 57.6,
+        "is_day": 1,
+        "condition": {
+            "text": "Fog",
+            "icon": "//cdn.weatherapi.com/weather/64x64/day/248.png",
+            "code": 1135
+        },
+        "wind_mph": 2.7,
+        "wind_kph": 4.3,
+        "wind_degree": 127,
+        "wind_dir": "SE",
+        "pressure_mb": 1011.0,
+        "pressure_in": 29.85,
+        "precip_mm": 0.1,
+        "precip_in": 0.0,
+        "humidity": 88,
+        "cloud": 50,
+        "feelslike_c": 14.7,
+        "feelslike_f": 58.4,
+        "windchill_c": 15.4,
+        "windchill_f": 59.6,
+        "heatindex_c": 15.4,
+        "heatindex_f": 59.6,
+        "dewpoint_c": 11.3,
+        "dewpoint_f": 52.4,
+        "vis_km": 5.0,
+        "vis_miles": 3.0,
+        "uv": 0.0,
+        "gust_mph": 3.7,
+        "gust_kph": 6.0
+    }
+}
+```
+
+
+---
 
 ## ⚙️ Instalación
 
 Clonar repositorio:
 
 ```bash
-git clone https://github.com/MaxDronCode/climax.git
+git clone https://github.com/MaxDronCode/Quasar-app.git
 cd climax
 ```
 
@@ -218,6 +323,7 @@ yarn install
 # o
 npm install
 ```
+[📖 Índice](#-tabla-de-contenidos)
 
 ---
 
@@ -241,6 +347,7 @@ yarn lint
 yarn format
 ```
 
+[📖 Índice](#-tabla-de-contenidos)
 
 ---
 
@@ -252,6 +359,8 @@ yarn format
 - ⏳ Widgets de datos detallados  
 - ⏳ Soporte multi-idioma  
 - ⏳ Modo oscuro/light  
+
+[📖 Índice](#-tabla-de-contenidos)
 
 ---
 
