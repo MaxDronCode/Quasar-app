@@ -161,28 +161,32 @@
 
 ---
 
-### 6. QForm - Formulario de entrada de datos
-![image](https://github.com/user-attachments/assets/5440c073-ef33-465a-b534-b6d1ad952a72)
+### 6. QForm - Gestión completa de formularios con validación integrada
+![image](https://github.com/user-attachments/assets/31628898-2ee8-443f-87db-83350f2dc3f5)
 
 
 - **Función:** Permite recoger, validar, y enviar datos  
 - **Ubicación:** `pages/ContactPage.vue`  
 - **Implementación:**
   ```vue
-    <q-form
-      @submit.prevent="onSubmit"
-      @reset.prevent="onReset"
-      class="q-gutter-md"
-    ></q-form>
+   <q-form @submit.prevent="onSubmit" @reset.prevent="onReset" class="q-gutter-md">
+   <!-- Campos del formulario -->
+   </q-form>
   ```
+- **Por qué se utilizó:**
+  - **Validación automática:** Coordina las reglas de todos los QInputs hijos
+  - **Manejo de eventos:** `submit.prevent` y `reset.prevent` para control nativo
+  - **Diseño consistente:** Espaciado uniforme con ``q-gutter-md``
+  - **Accesibilidad:** Genera markup HTML semántico (`<form>`)
+
 
 ---
 
-### 7. QInput - Input de entrada de datos
-![image](https://github.com/user-attachments/assets/c7666f1e-31ae-4e93-ad3f-63d6ec80408b)
+### 7. QInput - Campo de entrada de datos
+![image](https://github.com/user-attachments/assets/a1678fa7-dd8b-4d6e-9b59-c036f00a52b9)
 
 
-- **Función:** Permite introducir datos añ usuario y aplicar validaciones al momento
+- **Función:** Captura y valida datos de usuario en tiempo real
 - **Ubicación:** `pages/ContactPage.vue`  
 - **Implementación:**
   ```vue
@@ -198,6 +202,51 @@
         ]"
       />
   ```
+  - **Por qué se utilizó:**
+    - **Validación en cascada**: Reglas ejecutadas secuencialmente
+    - **Feedback visual**: Estilo filled con estados de error automáticos
+    - **Funcionalidad extendida**:
+      - `hint`: Muestra texto guía contextual
+      - `lazy-rules`: Valida solo al interactuar
+    - **Accesibilidad**: Genera ``<label>`` asociado automáticamente
+
+
+---
+
+### 8. QDrawer - Componente para crear un panel lateral de navegación
+![image](https://github.com/user-attachments/assets/a1678fa7-dd8b-4d6e-9b59-c036f00a52b9)
+
+
+- **Función:** Permite introducir datos añ usuario y aplicar validaciones al momento
+- **Ubicación:** `layouts/MainLayout.vue`  
+- **Implementación:**
+  ```vue
+          <q-drawer v-model="leftDrawerOpen" show-if-above class="bg-grey-8">
+      <q-list dark>
+        <!-- Cabecera del Drawer -->
+        <q-item-label header>Mis Ciudades</q-item-label>
+
+        <!-- Recorremos la lista de ciudades y generamos un item por cada una -->
+        <q-item
+          v-for="city in cityOptions"
+          :key="city"
+          clickable
+          :to="`/detail/${city}`"
+          router
+        >
+          <q-item-section avatar>
+            <q-icon name="location_city" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>{{ city }}</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-drawer>
+  ```
+  - **Por qué se utilizado:**
+    - El Drawer se muestra automáticamente en pantallas grande y se esconde en pantallas mas pequeñas
+
 
 ---
 
