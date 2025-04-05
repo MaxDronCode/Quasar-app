@@ -16,10 +16,8 @@
 
     <q-drawer v-model="leftDrawerOpen" show-if-above class="bg-grey-8">
       <q-list dark>
-        <!-- Cabecera del Drawer -->
         <q-item-label header>Mis Ciudades</q-item-label>
 
-        <!-- Recorremos la lista de ciudades y generamos un item por cada una -->
         <q-item
           v-for="city in cityOptions"
           :key="city"
@@ -34,7 +32,6 @@
             <q-item-label>{{ city }}</q-item-label>
           </q-item-section>
         </q-item>
-
       </q-list>
     </q-drawer>
 
