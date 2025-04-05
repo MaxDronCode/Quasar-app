@@ -1,7 +1,6 @@
 .DS_Store
 .thumbs.db
 node_modules
-api-key.js
 
 # Quasar core related directories
 .quasar
