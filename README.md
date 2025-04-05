@@ -303,7 +303,10 @@ Un ejemplo de una peticion GET a `https://api.weatherapi.com/v1/current.json` co
         "gust_kph": 6.0
     }
 }
+
 ```
+[📖 Índice](#-tabla-de-contenidos)
+
 
 ---
 
@@ -337,6 +340,7 @@ Lo mismo se aplica a la página de ``CONTACT``
 Y finalmente tenemos la barra lateral navegable, un menú que si activamos pulsando la 'hamburguesa' de la parte superior izquierda de la pantalla, podremos tener visible constantemente durante toda nuestra navegación por las distintas URLs de nuestra web, y que siempre nos llevará a la página de detalle de la ciudad seleccionada.
 ![image](https://github.com/user-attachments/assets/667f3f15-3140-4b92-9b9c-c6a000fa4005)
 
+[📖 Índice](#-tabla-de-contenidos)
 
 ---
 
