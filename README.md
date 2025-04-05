@@ -161,6 +161,46 @@
 
 ---
 
+### 6. QForm - Formulario de entrada de datos
+![image](https://github.com/user-attachments/assets/5440c073-ef33-465a-b534-b6d1ad952a72)
+
+
+- **Función:** Permite recoger, validar, y enviar datos  
+- **Ubicación:** `pages/ContactPage.vue`  
+- **Implementación:**
+  ```vue
+    <q-form
+      @submit.prevent="onSubmit"
+      @reset.prevent="onReset"
+      class="q-gutter-md"
+    ></q-form>
+  ```
+
+---
+
+### 7. QInput - Input de entrada de datos
+![image](https://github.com/user-attachments/assets/c7666f1e-31ae-4e93-ad3f-63d6ec80408b)
+
+
+- **Función:** Permite introducir datos añ usuario y aplicar validaciones al momento
+- **Ubicación:** `pages/ContactPage.vue`  
+- **Implementación:**
+  ```vue
+      <q-input
+        filled
+        v-model="email"
+        label="Correo electrónico *"
+        hint="ejemplo@dominio.com"
+        lazy-rules
+        :rules="[
+          val => !!val || 'Por favor introduce tu correo',
+          val => /^.+@.+\..+$/.test(val) || 'El correo electrónico no es válido'
+        ]"
+      />
+  ```
+
+---
+
 
 ## ⚙️ Instalación
 
