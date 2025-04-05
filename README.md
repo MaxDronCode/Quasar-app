@@ -96,7 +96,7 @@
 ![image](https://github.com/user-attachments/assets/d94cf2fe-85b4-4fd5-9768-6a6b5628d552)
 
 - **Función:** Display de datos climáticos  
-- **Ubicación:** `components/WeatherCard.vue`  
+- **Ubicación:** `pages/WeatherIndexPage.vue` - `pages/DetailCityPage.vue`
 - **Estructura básica:**
   ```vue
   <q-card class="weather-card q-pa-md" v-if="weatherData">
