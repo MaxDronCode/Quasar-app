@@ -5,7 +5,6 @@
       @reset.prevent="onReset"
       class="q-gutter-md"
     >
-      <!-- Nombre -->
       <q-input
         filled
         v-model="name"
@@ -15,7 +14,6 @@
         :rules="[ val => !!val || 'Por favor introduce tu nombre' ]"
       />
 
-      <!-- Correo -->
       <q-input
         filled
         v-model="email"
@@ -28,7 +26,6 @@
         ]"
       />
 
-      <!-- Mensaje (textarea) -->
       <q-input
         filled
         v-model="message"
@@ -42,13 +39,11 @@
         ]"
       />
 
-      <!-- Aceptar términos -->
       <q-toggle
         v-model="accept"
         label="He leído y acepto los términos y condiciones"
       />
 
-      <!-- Botones -->
       <div>
         <q-btn label="Enviar" type="submit" color="primary" />
         <q-btn label="Limpiar" type="reset" color="primary" flat class="q-ml-sm" />
@@ -65,16 +60,13 @@ export default {
   setup () {
     const $q = useQuasar()
 
-    // Campos del formulario
     const name = ref('')
     const email = ref('')
     const message = ref('')
     const accept = ref(false)
 
-    // Al enviar
     function onSubmit () {
       if (!accept.value) {
-        // Notificación de error si no acepta términos
         $q.notify({
           color: 'red-5',
           textColor: 'white',
@@ -82,7 +74,6 @@ export default {
           message: 'Debe aceptar los términos y condiciones antes de enviar'
         })
       } else {
-        // Notificación de éxito
         $q.notify({
           color: 'green-4',
           textColor: 'white',
@@ -93,7 +84,6 @@ export default {
       }
     }
 
-    // Al limpiar
     function onReset () {
       name.value = ''
       email.value = ''
@@ -114,5 +104,9 @@ export default {
 </script>
 
 <style>
-/* Opcional, tus estilos */
+.q-form {
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.144);
+}
 </style>
